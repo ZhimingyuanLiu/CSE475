@@ -21,6 +21,7 @@ bool State::rxPlaySound(uint8_t len, uint8_t* payload) {
   if (len < 1) {
     return false;
   }
+  
   Midi::setSound(payload[0]);
   return true;
 }
@@ -29,7 +30,10 @@ bool State::rxPlayEffect(uint8_t len, uint8_t* payload) {
   if (len < 1) {
     return false;
   }
-  Neopixel::setLight(payload[0]);
+
+  //switch(state)
+   
+  Neopixel::wind_light();
   return true;
 }
 

@@ -21,6 +21,10 @@ class Neopixel {
    */
   static void setLight(uint8_t lightIdx);
 
+  static void wind_light();
+
+  static uint32_t Wheel(byte WheelPos);
+
   /**
    * @returns the index of the current light gesture.
    */

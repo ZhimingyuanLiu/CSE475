@@ -55,12 +55,13 @@ class Midi {
   static Sound indigobu;
   static Sound mowa;
   static Sound wiwa;
+  static Sound wind;
 
   /** Array of all sounds, in a fixed order, used to assign an index to each. Add your sounds to this! */
   static constexpr Sound *SOUNDS[] =
       {nullptr, &Midi::scale, &Midi::bbwa, &Midi::bpwa, &Midi::brcr, &Midi::cardinal, &Midi::indigobu, &Midi::junco,
        &Midi::mowa, &Midi::oriole, &Midi::osprey, &Midi::oven, &Midi::songspar, &Midi::towhee, &Midi::tuftedti,
-       &Midi::veery, &Midi::whthsprw, &Midi::wiwa};
+       &Midi::veery, &Midi::whthsprw, &Midi::wiwa, &Midi::wind};
 
   /**
    * Use this to set the current sound gesture.

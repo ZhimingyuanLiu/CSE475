@@ -61,3 +61,33 @@ void Neopixel::rainbow(uint32_t dt) {
     offset++;
   }
 }
+
+void Neopixel::wind_light() {
+
+  int num = _strip.numPixels();
+  for (uint16_t i = 0; i < _strip.numPixels(); i++) {
+    int wait = random(20,120);
+    _strip.setPixelColor(i%num,Wheel(((i * 256 / _strip.numPixels()) + i) & 255));
+    _strip.setPixelColor((i+1)%num,Wheel(((i * 256 / _strip.numPixels()) + i) & 255));
+    _strip.setPixelColor((i+2)%num,Wheel(((i * 256 / _strip.numPixels()) + i) & 255));
+    _strip.setPixelColor((i+3)%num,Wheel(((i * 256 / _strip.numPixels()) + i) & 255));
+    _strip.setPixelColor((i+4)%num,Wheel(((i * 256 / _strip.numPixels()) + i) & 255));
+    _strip.show();
+    delay(wait);
+    _strip.clear();
+  }
+}
+
+
+uint32_t Neopixel::Wheel(byte WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if (WheelPos < 85) {
+    return _strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  }
+  if (WheelPos < 170) {
+    WheelPos -= 85;
+    return _strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+  WheelPos -= 170;
+  return _strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
